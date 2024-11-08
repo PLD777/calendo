@@ -29,10 +29,9 @@ export async function getParticipationsByStoreId(storeId) {
 }
 
 export async function createParticipation({ newParticipation }) {
-  const { data, error } = await supabase
+  const { error } = await supabase
     .from('participations')
-    .insert(newParticipation)
-    .select();
+    .insert(newParticipation);
 
   if (error) {
     console.error(error);
@@ -42,21 +41,18 @@ export async function createParticipation({ newParticipation }) {
     throw new Error("La participation n'a pas pu être enregistrée");
   }
 
-  return data;
+  return;
 }
 
 export async function createView(storeId) {
   {
-    const { data, error } = await supabase
-      .from('views')
-      .insert({ storeId })
-      .select();
+    const { error } = await supabase.from('views').insert({ storeId });
 
     if (error) {
       console.error(error);
       throw new Error("The view couldn't be created");
     }
 
-    return data;
+    return;
   }
 }
