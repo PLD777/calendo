@@ -45,14 +45,12 @@ export async function createParticipation({ newParticipation }) {
 }
 
 export async function createView(storeId) {
-  {
-    const { error } = await supabase.from('views').insert({ storeId });
+  const { error } = await supabase.from('views').insert({ storeId });
 
-    if (error) {
-      console.error(error);
-      throw new Error("The view couldn't be created");
-    }
-
-    return;
+  if (error) {
+    console.error(error);
+    throw new Error("The view couldn't be created");
   }
+
+  return;
 }
