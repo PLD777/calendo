@@ -14,9 +14,11 @@ import CreateStore from './pages/CreateStore';
 import EditStore from './pages/EditStore';
 import Calendo from './pages/Calendo';
 import PageNotFound from './pages/PageNotFound';
+import Login from './pages/Login';
 import CGU from './pages/CGU';
 import MentionsLegales from './pages/MentionsLegales';
 import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite';
+import ProtectedRoute from './ui/ProtectedRoute';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -33,7 +35,14 @@ function App() {
       <GlobalStyles />
       <BrowserRouter>
         <Routes>
-          <Route path="/jolo" element={<AppLayout />}>
+          <Route
+            path="/jolo"
+            element={
+              <ProtectedRoute>
+                <AppLayout />
+              </ProtectedRoute>
+            }
+          >
             <Route index element={<Navigate replace to="/jolo/operations" />} />
             <Route path="/jolo/operations" element={<Operations />} />
             <Route path="/jolo/stores" element={<Stores />} />
@@ -56,6 +65,8 @@ function App() {
           />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/cgu" element={<CGU />} />
+          <Route path="/jologin" element={<Login />} />
+
           <Route path="/:operationLink" element={<Calendo />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>

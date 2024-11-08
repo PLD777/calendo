@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import MainNav from './MainNav';
 import AuthDetails from './AuthDetails';
 import Logo from './Logo';
+import Logout from '../features/authentication/Logout';
 
 const StyledSidebar = styled.aside`
   background-color: var(--color-grey-0);
@@ -22,7 +23,8 @@ function Sidebar() {
         <Logo />
         <MainNav />
       </div>
-      <AuthDetails />
+      {/* <AuthDetails /> */}
+      <Logout />
     </StyledSidebar>
   );
 }
