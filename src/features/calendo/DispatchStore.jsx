@@ -13,8 +13,8 @@ function DispatchStore() {
   useEffect(
     function () {
       document.title = store
-        ? `Calendrier - ${store?.type} ${store?.city}`
-        : 'Calendrier - Chargement...';
+        ? `Calendo - ${store?.type} ${store?.city}`
+        : 'Calendo - Chargement...';
     },
     [store]
   );

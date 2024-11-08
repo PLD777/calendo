@@ -101,9 +101,6 @@ export async function createOperation({ newOperation }) {
 }
 
 export async function editOperation(editedOperation, id, operation) {
-  console.log(operation);
-  // console.log(editedOperation);
-
   const filePaths = [];
 
   const files = Object.entries(editedOperation).filter(([key]) => {
