@@ -24,6 +24,7 @@ const MentionsLegales = lazy(() => import('./pages/MentionsLegales'));
 const PolitiqueConfidentialite = lazy(() =>
   import('./pages/PolitiqueConfidentialite')
 );
+const EmergencyBreakdown = lazy(() => import('./pages/EmergencyBreakdown'));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -41,6 +42,8 @@ function App() {
       <BrowserRouter>
         <Suspense>
           <Routes>
+            {/* <Route path="*" element={<EmergencyBreakdown />} />  */}
+            {/* to uncomment in case of emergency and comment all the other routes below */}
             <Route
               path="/jolo"
               element={
